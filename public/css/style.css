@@ -1,3 +1,11 @@
 img {
 	display: block;
 }
+
+input, button {
+	display: block;
+}
+
+div {
+	padding: 2em;
+}
