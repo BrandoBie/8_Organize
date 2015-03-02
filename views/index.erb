@@ -1,31 +1,11 @@
-<div class="col-xs-12 col-md-6">
-  <form id="api">
-    <input name="country" type="text" id="country" value="<%= params['country'] %>"placeholder="country">
-    <input name="month" type="number" id="month" value="<%= params['month'] %>"placeholder="month">
-    <input name="year" id="year" value="<%= params['year'] %>" type="number" placeholder="year">
-    <button type="submit">Submit</button>
-  </form>
-</div>
+<%= bootstrap_alert "<strong>Warning! Warning!</strong> It looks like it's <strong>#{current_date_and_time}</strong>!", 'warning' %>
 
-<div class="col-xs-12 col-md-6">
-  <% if params.any? %>
-    <% @holidays = Array.new %>
-    <p> Results </p>
-    <ul>
-    <%
-      begin
-        @holidays = HolidApi.get(country: params['country'], year: params['year'], month: params['month']) 
-      rescue
-    %>
-      <li>Form error, please redo and try again</li>
-    <% end %>
-    
-    <% if @holidays.any? %>
-      <% @holidays.each do |hol| %>
-          <li><%= hol[0]['name'] %></li>
-      <% end %>
-      </ul>
-    <% end %>
-    
-  <% end %>
-</div>
+<section class="jumbotron text-center">
+  <p>You know what time that is?</p>
+  <h1>It's... CAT GIF TIME!</h1>
+
+  <figure>
+    <%= image_tag @cat_image.url, 'CAT GIF!' %>
+    <figcaption>Source: <a href="<%= @cat_image.source_url %>"><%= @cat_image.source_url %></a></figcaption>
+  </figure>
+</section>

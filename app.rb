@@ -1,9 +1,13 @@
-# app.rb
 require 'sinatra'
-require 'holidapi'
+require 'cat_api'
 
-class MyWebApp < Sinatra::Base
+require_relative 'helpers/methods_practice_helpers'
+
+class MethodsPracticeApp < Sinatra::Base
   get '/' do
+    @cat_image = CatAPI.new.get_images(type: 'gif').first
     erb :index
   end
+
+  helpers MethodsPracticeHelpers
 end
